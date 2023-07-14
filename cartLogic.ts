@@ -1,14 +1,15 @@
+//Creating an Interface for CartItems
 interface CartItem {
     productId: string;
     quantity: number;
     price: number;
   }
-  
+//Interface for Product quantity rules to apply for a particular product  
   interface Rule {
     productId: string;
     apply: (cartItem: CartItem) => number;
   }
-
+//Interface to Apply discount for Buy X and Get Y Discount on a product
   interface buyXGetYDiscount {
     discountId: number,
     itemOnOfferId: string,
@@ -26,6 +27,9 @@ interface CartItem {
     priority: number
   }
   
+  /* Defining a Cart Class and creating functions to add Rules on a Product, Add Items for our Cart,
+  Remove product from cart, Remove products by quantity, and to recalculate the final price
+  */
   class Cart {
     items: CartItem[] = [];
     rules: Rule[] = [];
